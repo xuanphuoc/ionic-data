@@ -1,0 +1,20 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Account</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+	<div padding-top text-center *ngIf="username">
+		<h2>{{username}}</h2>
+		<ion-list inset>
+			<button ion-item (click)="updatePicture()">Change Picture</button>
+			<button ion-item (click)="changeInfo()">Change Infomation</button>
+			<p></p>
+			<button ion-button (click)="onLogout()">Logout</button>
+		</ion-list>
+	</div>
+</ion-content>
