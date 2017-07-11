@@ -1,7 +1,0 @@
-    {
-        "name": "Breakfast",
-        "timeStart": "8:00 am",
-        "timeEnd": "9:00 am",
-        "location": "Main hallway",
-        "tracks": ["Food"]
-    }
