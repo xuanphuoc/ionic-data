@@ -10,7 +10,8 @@ import { UserPage } from '../user/user';
 import { Play } from '../play/play';
 
 @Component({
-  templateUrl: 'tabs.html'
+  templateUrl: 'tabs.html',
+  selector: 'tabs-page',
 })
 export class TabsPage {
 
@@ -19,11 +20,27 @@ export class TabsPage {
   tab3Root = UserPage;
   tab4Root = SettingPage;
 
+  degree: number;
+
   constructor(public navCtrl: NavController) {
 
+  }
+
+  ionViewDidLoad(){
+    this.rotate();
   }
 
   goPlay(){
   	this.navCtrl.push(Play);
   }
+
+  rotate(){
+    setInterval(()=>{
+      document.getElementById('profile').style.transform = "rotate("+ this.degree +"deg)";
+      this.degree +=10;
+    }, 40);
+  }
+
+
+
 }

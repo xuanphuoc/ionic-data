@@ -5,6 +5,8 @@ import { MyApp } from './app.component';
 
 import { MediaPlugin } from '@ionic-native/media';
 
+import { AngularFireModule } from 'angularfire2';
+
 import { SearchPage } from '../pages/search/search';
 import { SettingPage } from '../pages/setting/setting';
 import { HomePage } from '../pages/home/home';
@@ -18,6 +20,15 @@ import { Play } from '../pages/play/play';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+
+// export const firebaseConfig={
+//   apiKey: "AIzaSyDEnRfnGXde5TOZAx_Im4Dtsin1ITjGBPs",
+//   authDomain: "mprojec-dc77d.firebaseapp.com",
+//   databaseURL: "https://mprojec-dc77d.firebaseio.com",
+//   projectId: "mprojec-dc77d",
+//   storageBucket: "mprojec-dc77d.appspot.com",
+//   messagingSenderId: "682712634763"
+// }
 
 @NgModule({
   declarations: [
@@ -34,7 +45,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    // AngularFireModule.initializeApp(firebaseConfig),
   ],
   bootstrap: [IonicApp],
   entryComponents: [

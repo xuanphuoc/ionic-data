@@ -8,11 +8,16 @@
 
 <ion-content>
   <ion-list>
-    <ion-list-header headIcon="search">Thông báo</ion-list-header>
+    <ion-list-header style="border-bottom: none" headIcon="search">Cài đặt</ion-list-header>
     <ion-item>
-      <button ion-item>a</button>
-      <button ion-item>b</button>
+      <button ion-item menuClose><ion-icon name="person"></ion-icon>Tài Khoản</button>
     </ion-item>
-    <ion-list-header>Trình phát nhạc</ion-list-header>
+    <ion-list-header style="border-bottom: none">Thông tin</ion-list-header>
+    <ion-item>
+      <button ion-item menuClose><ion-icon name="information-circle"></ion-icon>Phiên bản</button>
+    </ion-item>
+    <ion-item>
+      <button ion-item menuClose><ion-icon name="star"></ion-icon>Vote</button>
+    </ion-item>
   </ion-list>
 </ion-content>

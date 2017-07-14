@@ -4,14 +4,29 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content>
+<ion-content style="margin-bottom: 70px">
   <button ion-item menuClose style="color: pink" (click)="goUserInfo()">User Name</button>
   <ion-list>
-    <ion-list-header>
+    <ion-list-header style="border-bottom: none">
+    Nhạc online
+    </ion-list-header>
+    <ion-item >
+      <button ion-item menuClose><ion-icon name="heart"></ion-icon>Nhạc yêu thích</button>
+    </ion-item>
+    <ion-item >
+      <button ion-item menuClose><ion-icon name="list-box"></ion-icon>Playlist</button>
+    </ion-item>
+    <ion-item >
+      <button ion-item menuClose><ion-icon name="arrow-round-up"></ion-icon>Upload</button>    
+    </ion-item>
+    <ion-list-header style="border-bottom: none">
     Nhạc offline
     </ion-list-header>
-    <button ion-item menuClose>btn1</button>
-    <button ion-item menuClose>btn2</button>
-
+    <ion-item>
+      <button ion-item menuClose><ion-icon name="musical-notes"></ion-icon>Thư viên nhạc</button>
+    </ion-item>
+    <ion-item>
+      <button ion-item menuClose><ion-icon name="download"></ion-icon>Lịch sử tải về</button>
+    </ion-item>
   </ion-list>
 </ion-content>
