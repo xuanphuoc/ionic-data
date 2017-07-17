@@ -1,8 +1,11 @@
 user-page{
-}
-.list-ios .item-block .item-inner{
-	border-bottom: none;
-}
-.item-ios.item-block .item-inner{
-	border-bottom: none;
+	.list-header-md{
+		border-top: none;
+	}
+	.list-md .item-block .item-inner{
+		border-bottom: none;
+	}
+	.item-md.item-block .item-inner{
+		border-bottom: none;
+	}
 }

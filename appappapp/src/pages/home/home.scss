@@ -1,3 +1,119 @@
 page-home {
+	.list-md .item-block .item-inner{
+		border-bottom: none
+	}
 
+	.item-md.item-block .item-inner{
+		border-bottom: none
+	}
+	.list-header-md{
+		border-top: none;
+	}
+
+	.stt1{
+		display: flex;
+		p{
+			margin: auto;
+			text-align: center;
+			color: orange;
+			font-size: 20px;
+		}
+	}
+	.stt2{
+		display: flex;
+		p{
+			margin: auto;
+			text-align: center;
+			color: pink;
+			font-size: 20px;
+		}
+	}
+	.stt3{
+		display: flex;
+		p{
+			margin: auto;
+			text-align: center;
+			color: violet;
+			font-size: 20px;
+		}
+	}
+	.stt{
+		display: flex;
+		p{
+			margin: auto;
+			text-align: center;
+			color: #91908e;
+			font-size: 20px;
+		}
+	}
+
+	.profile{
+		img{
+			height: 10vh;
+			width: 10vh;
+			margin: auto;
+			border-radius: 5px;
+		}
+	}
+
+	.nameTitle{
+		display: flex;
+		height: 60%;
+		p{
+			margin-left: 15px;
+			text-align: center;
+			margin-top: 15px;
+			color: pink;
+		}
+
+	}
+	.actorTitle{
+		display: flex;
+		height: 40%;
+		p{
+			margin-left: 15px;
+			text-align: center;
+			font-size: 85%;
+			color: violet;
+		}
+	}
+
+	.song{
+		font-size: 110%;
+		color: pink;
+		margin-top: 3%;
+		margin-left: 6%;
+	}
+	.actor{
+		font-size: 85%;
+		color: violet;
+		margin-top: 4.5%;
+		margin-left: 6%;
+	}
+
+	.buttonMore{
+		box-shadow: none;
+		margin: auto;
+		color: black;
+	}
+	.title1{
+		color: black;
+		font-size: 20px;
+		width: 70%
+	}
+	.more{
+		margin: auto;
+		text-align: center;
+		color: pink;
+		font-size: 15px;
+		width: 30%;
+	}
+	.swiper-pagination-fraction, .swiper-pagination-custom, .swiper-container-horizontal > .swiper-pagination-bullets{
+		width: 100%;
+		left: 20vh;
+		top: 0vh
+	}
+	.swiper-pagination-clickable .swiper-pagination-bullet{
+		background: pink;
+	}
 }

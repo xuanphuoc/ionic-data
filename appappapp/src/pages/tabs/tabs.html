@@ -1,24 +1,26 @@
-<ion-toolbar color="light" style="position: absolute;bottom: 50px;height: 10%" (click)="goPlay()">
+<ion-toolbar color="light" style="position: absolute;bottom: 50px;height: 10%">
 	<div class="row" style="height: 100%">
-		<div style="width: 13%">
-			<img id="profile" style="border-radius: 50%" src="https://firebasestorage.googleapis.com/v0/b/mprojec-dc77d.appspot.com/o/profile%2Fg%E1%BB%ADi%20anh%20xa%20nh%E1%BB%9B.jpg?alt=media&token=3e5a6803-9845-47b6-8616-709229073924">
+		<div style="width: 18%" (click)="goPlay()">
+			<div style="height: 8.5vh;width: 8.5vh; margin: auto">
+				<img id="rotate1" style="border-radius: 50%; height: 100%;width: 100%" src="{{dataFirebase.profile}}">
+			</div>
 		</div>
-		<div style="width: 36%; display: flex; flex-direction: column;">
-			<div class="text" style="height: 60%"><p>1</p></div>
-			<div class="text1" style="height: 40%"><p>2</p></div>
+		<div style="width: 52%; display: flex; flex-direction: column;" (click)="goPlay()">
+			<div class="text">{{dataFirebase.tenbh}}</div>
+			<div class="text1">{{dataFirebase.tencs}}</div>
 		</div>
-		<div style="width: 50%; display: flex">
-			<div style="width: 100%; height: 100%; margin: auto; display: flex; flex-direction: row-reverse;">
-				<button ion-button color="light" style="box-shadow: none; margin: auto;"><ion-icon name="skip-forward"></ion-icon></button>
-				<button ion-button color="light" style="box-shadow: none; margin: auto;"><ion-icon id="fuck" name="play"></ion-icon></button>
-				<button ion-button color="light" style="box-shadow: none; margin: auto;"><ion-icon name="skip-backward"></ion-icon></button>
+		<div style="width: 30%; display: flex">
+			<div style="width: 100%; margin: auto; display: flex; flex-direction: row-reverse;">
+				<button ion-button color="light" style="box-shadow: none;"><ion-icon name="skip-forward"></ion-icon></button>
+				<button ion-button color="light" style="box-shadow: none;" (click)="changeButton()"><ion-icon [name]="nameIcon"></ion-icon></button>
+				<button ion-button color="light" style="box-shadow: none;"><ion-icon name="skip-backward"></ion-icon></button>
 			</div>
 		</div>
 	</div>
 </ion-toolbar>
 <ion-tabs>
-  	<ion-tab [root]="tab1Root" tabTitle="Trang chủ" tabIcon="home"></ion-tab>
-  	<ion-tab [root]="tab2Root" tabTitle="Tìm kiếm" tabIcon="search"></ion-tab>
-  	<ion-tab [root]="tab3Root" tabTitle="Cá nhân" tabIcon="contact"></ion-tab>
-  	<ion-tab [root]="tab4Root" tabTitle="Cài đặt" tabIcon="cog"></ion-tab>
+	<ion-tab [root]="tab1Root" tabTitle="Trang chủ" tabIcon="home"></ion-tab>
+	<ion-tab [root]="tab2Root" tabTitle="Tìm kiếm" tabIcon="search"></ion-tab>
+	<ion-tab [root]="tab3Root" tabTitle="Cá nhân" tabIcon="contact"></ion-tab>
+	<ion-tab [root]="tab4Root" tabTitle="Cài đặt" tabIcon="cog"></ion-tab>
 </ion-tabs>

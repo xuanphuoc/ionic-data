@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 
 @Component({
-  selector: 'page-setting',
+  selector: 'setting-page',
   templateUrl: 'setting.html'
 })
 export class SettingPage {

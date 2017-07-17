@@ -4,7 +4,7 @@ import { NavController } from 'ionic-angular';
 import { UserInfo } from '../../pages/userinfo/userinfo';
 
 @Component({
-  selector: 'page-user',
+  selector: 'user-page',
   templateUrl: 'user.html'
 })
 export class UserPage {

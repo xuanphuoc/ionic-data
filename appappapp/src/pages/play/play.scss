@@ -13,4 +13,17 @@ play-page{
 		margin: auto;
 		box-shadow: none;
 	}
+	.swiper-pagination-clickable .swiper-pagination-bullet{
+		background: pink;
+	}
+	.swiper-pagination-fraction, .swiper-pagination-custom, .swiper-container-horizontal > .swiper-pagination-bullets{
+		width: 100%;
+		top: 0vh
+	}
+	[icon-only] ion-icon{
+		font-size: 3em
+	}
+	.icon1{
+		font-size: 2.5em;
+	}
 }
