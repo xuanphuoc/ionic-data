@@ -13,7 +13,7 @@
 		</div>
 	</div>
 	<div style="height: 70%">
-		<ion-slides pager>
+		<ion-slides pager initialSlide="1">
 			<ion-slide>
 				<div>
 					{{dataFirebase.tenbh}}
@@ -72,10 +72,10 @@
 							<button ion-button class="button1" color="light"><ion-icon class="icon1" name="skip-backward"></ion-icon></button>
 						</div>
 						<div style="width: 34%">
-							<button ion-button icon-only class="button1" color="light" (click)="startAudio()"><ion-icon [name]="nameIcon" ></ion-icon></button>
+							<button ion-button icon-only class="button1" color="light" (click)="play()"><ion-icon [name]="nameIcon" ></ion-icon></button>
 						</div>
 						<div style="width: 33%">
-							<button ion-button class="button1" color="light" (click)="pause1()"><ion-icon class="icon1" name="skip-forward"></ion-icon></button>
+							<button ion-button class="button1" color="light" (click)="stop()"><ion-icon class="icon1" name="skip-forward"></ion-icon></button>
 						</div>
 					</div>
 				</div>

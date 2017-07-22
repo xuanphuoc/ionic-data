@@ -20,16 +20,26 @@
   </div>
   <ion-list style="height: 120vh">
     <div class="row">
-      <div class="title1"><ion-list-header ><p><font face="verdana" size="5" color="balck">BXH</font></p></ion-list-header></div>
-      <div class="more"><p>xem thêm</p></div>
+      <div class="title1">
+        <ion-list-header>
+          <p>
+            <font face="verdana" size="5" color="balck">BXH</font>
+          </p>
+        </ion-list-header>
+      </div>
+      <div class="more" (click)="moreBxh()">
+        <p>xem thêm</p>
+      </div>
     </div>
     <div>
       <ion-list *ngIf="!isLoading">
         <ion-item>
-          <div class="row" style="height: 100%"  (click)="play1(element[0].link,element[0].profile,element[0].tenbh,element[0].tencs)">
-            <div class="stt1" style="width: 10%"><p>1</p></div>
-            <div class="profile" style="width: 20%" >
-              <img src="{{element[0].profile}}">              
+          <div class="row" style="height: 100%" (click)="play1(element[0].link,element[0].profile,element[0].tenbh,element[0].tencs)">
+            <div class="stt1" style="width: 10%">
+              <p>1</p>
+            </div>
+            <div class="profile" style="width: 20%">
+              <img src="{{element[0].profile}}">
             </div>
             <div style="width: 60%; display: flex; flex-direction: column;">
               <div class="song">{{element[0].tenbh}}</div>
@@ -42,12 +52,14 @@
         </ion-item>
         <ion-item>
           <div class="row" style="height: 100%" (click)="play1(element[1].link,element[1].profile,element[1].tenbh,element[1].tencs)">
-            <div class="stt2" style="width: 10%"><p>2</p></div>
+            <div class="stt2" style="width: 10%">
+              <p>2</p>
+            </div>
             <div class="profile" style="width: 20%">
               <img src="{{element[1].profile}}">
             </div>
             <div style="width: 60%; display: flex; flex-direction: column;">
-              <div class="song" >{{element[1].tenbh}}</div>
+              <div class="song">{{element[1].tenbh}}</div>
               <div class="actor">{{element[1].tencs}}</div>
             </div>
             <div style="width: 10%; margin: auto">
@@ -57,7 +69,9 @@
         </ion-item>
         <ion-item>
           <div class="row" style="height: 100%" (click)="play1(element[2].link,element[2].profile,element[2].tenbh,element[2].tencs)">
-            <div class="stt3" style="width: 10%"><p>3</p></div>
+            <div class="stt3" style="width: 10%">
+              <p>3</p>
+            </div>
             <div class="profile" style="width: 20%">
               <img src="{{element[2].profile}}">
             </div>
@@ -72,7 +86,9 @@
         </ion-item>
         <ion-item>
           <div class="row" style="height: 100%" (click)="play1(element[3].link,element[3].profile,element[3].tenbh,element[3].tencs)">
-            <div class="stt" style="width: 10%"><p>4</p></div>
+            <div class="stt" style="width: 10%">
+              <p>4</p>
+            </div>
             <div class="profile" style="width: 20%">
               <img src="{{element[3].profile}}">
             </div>
@@ -87,7 +103,9 @@
         </ion-item>
         <ion-item>
           <div class="row" style="height: 100%" (click)="play1(element[4].link,element[4].profile,element[4].tenbh,element[4].tencs)">
-            <div class="stt" style="width: 10%"><p>5</p></div>
+            <div class="stt" style="width: 10%">
+              <p>5</p>
+            </div>
             <div class="profile" style="width: 20%">
               <img src="{{element[4].profile}}">
             </div>
@@ -104,32 +122,48 @@
     </div>
 
     <div class="row">
-      <div class="title1"><ion-list-header ><p><font face="verdana" size="5" color="balck">TOP MV</font></p></ion-list-header></div>
-      <div class="more"><p>xem thêm</p></div>
+      <div class="title1">
+        <ion-list-header>
+          <p>
+            <font face="verdana" size="5" color="balck">TOP MV</font>
+          </p>
+        </ion-list-header>
+      </div>
+      <div class="more" (click)="moreMv()">
+        <p>xem thêm</p>
+      </div>
     </div>
     <div>
-      <ion-list *ngIf="!isLoading">
+      <ion-list *ngIf="!isVideoLoading">
         <ion-item>
           <div class="row" style="height: 23vh">
-            <div style="width: 48%; margin-right: 2%">
+            <div style="width: 48%; margin-right: 2%" (click)="playvideo(elementmv[0].linkmv,elementmv[0].profilemv,elementmv[0].tenmv,elementmv[0].tencsmv)">
               <div>
-                <img style="border-radius: 5px; height: 15.6vh; width: 25vh" src="{{element[0].profile}}">
+                <img style="border-radius: 5px; height: 15.6vh; width: 25vh" src="{{elementmv[0].profilemv}}">
               </div>
               <div>
                 <div style="width: 63%; display: flex; flex-direction: column;">
-                  <div style="height: 60%; margin-left: 0px"><p>Name</p></div>
-                  <div style="height: 40%;margin-left: 0px"><p>Actor</p></div>
+                  <div class="mv" style="height: 60%; margin-left: 0px">
+                    {{elementmv[0].tenmv}}
+                  </div>
+                  <div class="actormv" style="height: 40%;margin-left: 0px">
+                    {{elementmv[0].tencsmv}}
+                  </div>
                 </div>
               </div>
             </div>
-            <div style="width: 48%;margin-left: 2%">
+            <div style="width: 48%;margin-left: 2%" (click)="playvideo(elementmv[1].linkmv,elementmv[1].profilemv,elementmv[1].tenmv,elementmv[1].tencsmv)">
               <div>
-                <img style="border-radius: 5px; height: 15.6vh; width: 25vh" src="{{element[1].profile}}">
+                <img style="border-radius: 5px; height: 15.6vh; width: 25vh" src="{{elementmv[1].profilemv}}">
               </div>
               <div>
                 <div style="width: 63%; display: flex; flex-direction: column;">
-                  <div style="height: 60%; margin-left: 0px"><p>Name</p></div>
-                  <div style="height: 40%;margin-left: 0px"><p>Actor</p></div>
+                  <div class="mv" style="height: 60%; margin-left: 0px">
+                    {{elementmv[1].tenmv}}
+                  </div>
+                  <div class="actormv" style="height: 40%;margin-left: 0px">
+                    {{elementmv[1].tencsmv}}
+                  </div>
                 </div>
               </div>
             </div>
@@ -137,25 +171,33 @@
         </ion-item>
         <ion-item>
           <div class="row" style="height: 23vh">
-            <div style="width: 48%; margin-right: 2%; border-radius: 5px">
+            <div style="width: 48%; margin-right: 2%;" (click)="playvideo(elementmv[2].linkmv,elementmv[2].profilemv,elementmv[2].tenmv,elementmv[2].tencsmv)">
               <div>
-                <img style="border-radius: 5px; height: 15.6vh;width: 25vh" src="{{element[2].profile}}">
+                <img style="border-radius: 5px; height: 15.6vh;width: 25vh" src="{{elementmv[2].profilemv}}">
               </div>
               <div>
                 <div style="width: 63%; display: flex; flex-direction: column;">
-                  <div style="height: 60%; margin-left: 0px"><p>Name</p></div>
-                  <div style="height: 40%;margin-left: 0px"><p>Actor</p></div>
+                  <div class="mv" style="height: 60%; margin-left: 0px">
+                    {{elementmv[2].tenmv}}
+                  </div>
+                  <div class="actormv" style="height: 40%;margin-left: 0px">
+                    {{elementmv[2].tencsmv}}
+                  </div>
                 </div>
               </div>
             </div>
-            <div style="width: 48%; margin-left: 2%">
+            <div style="width: 48%; margin-left: 2%" (click)="playvideo(elementmv[3].linkmv,elementmv[3].profilemv,elementmv[3].tenmv,elementmv[3].tencsmv)">
               <div>
-                <img style="border-radius: 5px; height: 15.6vh; width: 25vh" src="{{element[3].profile}}">
+                <img style="border-radius: 5px; height: 15.6vh; width: 25vh" src="{{elementmv[3].profilemv}}">
               </div>
               <div>
                 <div style="width: 63%; display: flex; flex-direction: column;">
-                  <div style="height: 60%; margin-left: 0px"><p>Name</p></div>
-                  <div style="height: 40%;margin-left: 0px"><p>Actor</p></div>
+                  <div class="mv" style="height: 60%; margin-left: 0px">
+                    {{elementmv[3].tenmv}}
+                  </div>
+                  <div class="actormv" style="height: 40%;margin-left: 0px">
+                    {{elementmv[3].tencsmv}}
+                  </div>
                 </div>
               </div>
             </div>
@@ -164,8 +206,16 @@
       </ion-list>
     </div>
     <div class="row">
-      <div class="title1"><ion-list-header ><p><font face="verdana" size="5" color="balck">RANDOM</font></p></ion-list-header></div>
-      <div class="more"><p>xem thêm</p></div>
+      <div class="title1">
+        <ion-list-header>
+          <p>
+            <font face="verdana" size="5" color="balck">RANDOM</font>
+          </p>
+        </ion-list-header>
+      </div>
+      <div class="more">
+        <p>xem thêm</p>
+      </div>
     </div>
   </ion-list>
 </ion-content>

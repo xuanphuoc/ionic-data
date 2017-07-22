@@ -4,6 +4,8 @@ import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 
 import { Data } from '../providers/data';
+import { MediaPlugin } from '@ionic-native/media';
+import { VideoPlayer } from '@ionic-native/video-player';
 
 import { StreamingMedia } from '@ionic-native/streaming-media';
 
@@ -15,10 +17,15 @@ import { SettingPage } from '../pages/setting/setting';
 import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
 import { UserPage } from '../pages/user/user';
+import { Bxh } from '../pages/bxh/bxh';
+import { bxhNhac } from '../pages/bxhnhac/bxhnhac';
+import { bxhVideo } from '../pages/bxhvideo/bxhvideo';
+import { ListMv } from '../pages/mvlist/mvlist';
 
 import { UserInfo } from '../pages/userinfo/userinfo';
 
 import { Play } from '../pages/play/play';
+import { PlayVideo } from '../pages/playvideo/playvideo';
 
 
 import { StatusBar } from '@ionic-native/status-bar';
@@ -44,7 +51,13 @@ export const firebaseConfig={
     UserPage,
 
     UserInfo,
-    Play
+    Bxh,
+    bxhNhac,
+    bxhVideo,
+    ListMv,
+
+    Play,
+    PlayVideo
   ],
   imports: [
     BrowserModule,
@@ -62,7 +75,13 @@ export const firebaseConfig={
     UserPage,
 
     UserInfo,
-    Play
+    Bxh,
+    bxhNhac,
+    bxhVideo,
+    ListMv,
+
+    Play,
+    PlayVideo,
   ],
   providers: [
     StatusBar,
@@ -70,7 +89,9 @@ export const firebaseConfig={
     AngularFireDatabase,
     Data,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
+    MediaPlugin,
     StreamingMedia,
+    VideoPlayer,
   ]
 })
 export class AppModule {}

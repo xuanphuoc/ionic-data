@@ -1,0 +1,22 @@
+<ion-content class="outer-content" *ngIf="!isLoading">
+    <ion-list [virtualScroll]="bxh">
+        <ion-item *virtualItem="let bxh">
+            <div ion-item>
+                <div class="row" style="height: 100%">
+                    <div class="stt1" style="width: 10%">
+                    </div>
+                    <div class="profile" style="width: 20%">
+                        <img src="{{bxh.profile}}">
+                    </div>
+                    <div style="width: 60%; display: flex; flex-direction: column;">
+                        <div class="song">{{bxh.tenbh}}</div>
+                        <div class="actor">{{bxh.tencs}}</div>
+                    </div>
+                    <div style="width: 10%; margin: auto">
+                        <button class="buttonMore" ion-button icon-only color="third"><ion-icon name="more"></ion-icon></button>
+                    </div>
+                </div>
+            </div>
+        </ion-item>
+    </ion-list>
+</ion-content>

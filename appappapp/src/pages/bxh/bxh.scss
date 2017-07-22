@@ -1,0 +1,42 @@
+bxh-page{
+    .song{
+		font-size: 110%;
+		color: pink;
+		margin-top: 3%;
+		margin-left: 6%;
+	}
+	.actor{
+		font-size: 85%;
+		color: violet;
+		margin-top: 4.5%;
+		margin-left: 6%;
+    }
+	.buttonMore{
+		box-shadow: none;
+		margin: auto;
+		color: black;
+    }
+	.stt1{
+		display: flex;
+		p{
+			margin: auto;
+			text-align: center;
+			color: orange;
+			font-size: 20px;
+		}
+    }
+    .profile{
+		img{
+			height: 10vh;
+			width: 10vh;
+			margin: auto;
+			border-radius: 5px;
+		}
+    }
+    .list-md .item-block .item-inner{
+        border-bottom: none;
+    }
+    .item-md.item-block .item-inner{
+        border-bottom: none;
+    }
+}

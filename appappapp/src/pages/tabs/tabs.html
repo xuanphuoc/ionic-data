@@ -1,8 +1,8 @@
-<ion-toolbar color="light" style="position: absolute;bottom: 50px;height: 10%">
+<ion-toolbar color="light" id="tool" style="position: absolute;bottom: 50px;height: 10%;">
 	<div class="row" style="height: 100%">
 		<div style="width: 18%" (click)="goPlay()">
 			<div style="height: 8.5vh;width: 8.5vh; margin: auto">
-				<img id="rotate1" style="border-radius: 50%; height: 100%;width: 100%" src="{{dataFirebase.profile}}">
+				<img id="rotate" style="border-radius: 50%; height: 100%;width: 100%" src="{{dataFirebase.profile}}">
 			</div>
 		</div>
 		<div style="width: 52%; display: flex; flex-direction: column;" (click)="goPlay()">
@@ -18,7 +18,7 @@
 		</div>
 	</div>
 </ion-toolbar>
-<ion-tabs>
+<ion-tabs tabsPlacement="bottom">
 	<ion-tab [root]="tab1Root" tabTitle="Trang chủ" tabIcon="home"></ion-tab>
 	<ion-tab [root]="tab2Root" tabTitle="Tìm kiếm" tabIcon="search"></ion-tab>
 	<ion-tab [root]="tab3Root" tabTitle="Cá nhân" tabIcon="contact"></ion-tab>

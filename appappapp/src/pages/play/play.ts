@@ -1,7 +1,8 @@
-import {Component} from '@angular/core';
+import { Component } from '@angular/core';
 
-import { NavController } from 'ionic-angular';
+import { NavController, Events } from 'ionic-angular';
 
+import { MediaPlugin, MediaObject } from '@ionic-native/media';
 
 import { TabsPage } from '../tabs/tabs';
 
@@ -10,81 +11,87 @@ import { StreamingMedia, StreamingAudioOptions } from '@ionic-native/streaming-m
 
 import { Data } from '../../providers/data';
 
+const onStatusUpdate = (status) => console.log(status);
+const onSuccess = () => console.log('Action is successful.');
+const onError = (error) => console.error(error.message);
+
 @Component({
 	selector: 'play-page',
 	templateUrl: 'play.html',
 })
-
-export class Play{
+export class Play {
 	nameIcon: string = "pause";
-	audio: any;
 	degree: number;
-	stream: any;
-	promise: any;
-	url: string;
-
+	interVel: any;
+	isRotate: boolean;
 
 	constructor(
 		public navCtrl: NavController,
 		public dataFirebase: Data,
 		public streamMedia: StreamingMedia,
-		){
+		public event: Events,
+		public media: MediaPlugin
+	) {
 		this.degree = 0;
+		event.subscribe('mode:true', (mode) => {
+			this.isRotate = mode;
 
-		this.audio = new Audio();
+		});
 	}
 
+	file: MediaObject = this.media.create(this.dataFirebase.link, onStatusUpdate, onSuccess, onError);
+	audio = new Audio(this.dataFirebase.link);
 	isLoading: boolean = true;
-	ionViewDidLoad(){
+	ionViewDidLoad() {
 		this.rotate();
 	}
 
-	startAudio(){
-		let options : StreamingAudioOptions = {
-			successCallback: () =>{console.log()},
-			errorCallback: ()=>{console.log()},
+	startAudio() {
+		let options: StreamingAudioOptions = {
+			successCallback: () => { console.log() },
+			errorCallback: () => { console.log() },
 			initFullscreen: false,
 		}
 		this.streamMedia.playAudio(this.dataFirebase.link, options);
 	}
-	
 
 
 
-	play(){
-		this.stream = new Audio(this.dataFirebase.link);
-		if(this.nameIcon === 'play'){
+
+	play() {
+		if (this.nameIcon === 'play' && !this.isRotate) {
 			this.nameIcon = "pause";
-			this.stream.play();
-
-		}else if(this.nameIcon === 'pause'){
+			// this.file.play();
+			this.audio.play();
+			this.interVel = setInterval(() => {
+				document.getElementById('image').style.transform = "rotate(" + this.degree + "deg)";
+				this.degree += 0.15;
+			}, 40);
+			this.isRotate = true;
+		} else if (this.nameIcon === 'pause' && this.isRotate) {
 			this.nameIcon = "play";
-			this.pause1();
-
+			// this.file.pause();
+			this.audio.pause();
+			clearInterval(this.interVel);
+			this.isRotate = false;
 		}
 	}
 
-	pause1(){
-			this.stream.pause()
-		// this.stream = null;
+	backTabs() {
+		this.navCtrl.push(TabsPage, {}, { animate: true, direction: 'back' });
+		// this.event.publish('rotate:true',this.isRotate);
+		// this.navCtrl.pop({animate: true, direction: 'back'});
 	}
-
-	stop1(){
-		if(this.stream !=  null){
-			this.stream.pause();
-			this.dataFirebase.link = "";
-		}
-		this.stream = null;
+	stop() {
+		this.audio.pause();
+		this.audio.load();
 	}
-
-	backTabs(){
-		this.navCtrl.push(TabsPage);
-	}
-	rotate(){
-		setInterval(()=>{
-			document.getElementById('image').style.transform = "rotate("+ this.degree +"deg)";
-			this.degree +=0.1;
+	rotate() {
+		this.audio.play();
+		this.interVel = setInterval(() => {
+			document.getElementById('image').style.transform = "rotate(" + this.degree + "deg)";
+			this.degree += 0.1;
 		}, 40);
+		this.isRotate = true;
 	}
-
 }

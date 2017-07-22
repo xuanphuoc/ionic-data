@@ -1,69 +1,71 @@
 import { Component } from '@angular/core';
-import { NavController, App } from 'ionic-angular';
+import { NavController, App, Events} from 'ionic-angular';
 
 import { Data } from '../../providers/data';
+
 import { Play } from '../play/play';
+import { PlayVideo } from '../playvideo/playvideo';
 
-import { SettingPage} from '../setting/setting';
+import { Bxh } from '../bxh/bxh';
+import { ListMv } from '../mvlist/mvlist';
 
-import { TabsPage } from '../tabs/tabs';
 
 @Component({
 	selector: 'page-home',
 	templateUrl: 'home.html'
 })
 export class HomePage {
-	element : Array<any>=[];
+	element: Array<any> = [];
+	elementmv: Array<any> = [];
 	isLoading: boolean = true;
-	stream: any;
-	promise: any;
+	isVideoLoading: boolean = true;
 	navController: NavController;
-	constructor(public navCtrl: NavController,
-		public dataFirebase: Data, public app: App
-		) {
+
+	constructor(
+		public navCtrl: NavController,
+		public dataFirebase: Data,
+		public app: App,
+		public event: Events,
+	) {
 		this.navController = app.getRootNav()
 	}
 
-	ionViewDidLoad(){
+	ionViewDidLoad() {
 		this.dataFirebase.getData();
-		this.dataFirebase.music.subscribe((data)=>{
+		this.dataFirebase.music.subscribe((data) => {
 			this.element = data;
 			this.isLoading = false;
 		});
+		this.dataFirebase.video.subscribe((data)=>{
+			this.elementmv = data;
+			this.isVideoLoading = false; 
+		});
 	}
 
-	play(link: string){
-		this.stream = new Audio(link);
-		this.stream.play();
-		this.promise = new Promise((resolve,reject)=>{
-			this.stream.addEventListener('playing',()=>{
-				resolve(true);
-			});
-			this.stream.addEventListener('error', () =>{
-				reject(false)
-			});
-		});
+	play1(link: string, profile: string, tenbh: string, tencs: string) {
 
-		return this.promise;
-	}
-	play1(link: string, profile: string, tenbh: string, tencs: string){
-		this.stream = new Audio(link);
-		// this.stream.play();
-
-		this.navController.push(Play);
-		this.promise = new Promise((resolve,reject)=>{
-			this.stream.addEventListener('playing',()=>{
-				resolve(true);
-			});
-			this.stream.addEventListener('error', () =>{
-				reject(false)
-			});
-		});
+		this.navController.push(Play, {}, { animate: true, direction: 'forward'});
+		this.dataFirebase.booleantest = true;
 		this.dataFirebase.link = link;
 		this.dataFirebase.profile = profile;
 		this.dataFirebase.tenbh = tenbh;
 		this.dataFirebase.tencs = tencs;
+	}
 
-		return this.promise;
+	moreBxh(){
+		this.navCtrl.push(Bxh,{},{animate: true, direction: 'forward'})
+	}
+
+	moreMv(){
+		this.navCtrl.push(ListMv,{},{animate:true, direction: 'forward'})
+		
+	}
+
+	playvideo(linkmv: string, profilemv: string, tenmv: string, tencsmv: string){
+		this.navController.push(PlayVideo, {}, {animate: true, direction: ' forward'});
+		this.dataFirebase.linkmv = linkmv;
+		this.dataFirebase.tenmv = tenmv;
+		this.dataFirebase.profilemv = profilemv;
+		this.dataFirebase.tencsmv = tencsmv;	
 	}
 }
