@@ -6,8 +6,9 @@ import { MyApp } from './app.component';
 import { Data } from '../providers/data';
 import { MediaPlugin } from '@ionic-native/media';
 import { VideoPlayer } from '@ionic-native/video-player';
-
-import { StreamingMedia } from '@ionic-native/streaming-media';
+import { HttpModule } from '@angular/http';
+import { FileTransfer, FileTransferObject } from '@ionic-native/file-transfer';
+import { File } from '@ionic-native/file';
 
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabase } from 'angularfire2/database';
@@ -21,17 +22,17 @@ import { Bxh } from '../pages/bxh/bxh';
 import { bxhNhac } from '../pages/bxhnhac/bxhnhac';
 import { bxhVideo } from '../pages/bxhvideo/bxhvideo';
 import { ListMv } from '../pages/mvlist/mvlist';
+import { ListOffline } from '../pages/listoffline/listoffline';
 
 import { UserInfo } from '../pages/userinfo/userinfo';
 
-import { Play } from '../pages/play/play';
 import { PlayVideo } from '../pages/playvideo/playvideo';
 
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
-export const firebaseConfig={
+export const firebaseConfig = {
   apiKey: "AIzaSyDEnRfnGXde5TOZAx_Im4Dtsin1ITjGBPs",
   authDomain: "mprojec-dc77d.firebaseapp.com",
   databaseURL: "https://mprojec-dc77d.firebaseio.com",
@@ -44,7 +45,7 @@ export const firebaseConfig={
   declarations: [
     MyApp,
     TabsPage,
-    
+
     SearchPage,
     SettingPage,
     HomePage,
@@ -55,12 +56,13 @@ export const firebaseConfig={
     bxhNhac,
     bxhVideo,
     ListMv,
+    ListOffline,
 
-    Play,
     PlayVideo
   ],
   imports: [
     BrowserModule,
+    HttpModule,
     IonicModule.forRoot(MyApp),
     AngularFireModule.initializeApp(firebaseConfig),
   ],
@@ -79,19 +81,21 @@ export const firebaseConfig={
     bxhNhac,
     bxhVideo,
     ListMv,
+    ListOffline,
 
-    Play,
     PlayVideo,
   ],
   providers: [
     StatusBar,
-    SplashScreen, 
+    SplashScreen,
     AngularFireDatabase,
     Data,
-    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    { provide: ErrorHandler, useClass: IonicErrorHandler },
     MediaPlugin,
-    StreamingMedia,
     VideoPlayer,
+    FileTransfer,
+    FileTransferObject,
+    File,
   ]
 })
-export class AppModule {}
+export class AppModule { }

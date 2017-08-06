@@ -1,15 +1,38 @@
 playvideo-page{
     video{
-        position: absolute;
         width: 100%;
-        height: 100%;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        
     }
     .scroll-content{
-        margin-bottom:59vh;
-        width: 100%;
+        margin-bottom:0vh;
     }
+    .mv{
+		font-size: 70%;
+		color: pink;
+		margin-top: 3%;
+		height: 60%; 
+	}
+	.actormv{
+		font-size: 55%;
+		color: violet;
+		margin-top: 4.5%;
+		height: 40%;
+	}
+	.profilemv{
+		border-radius: 5px; 
+		height: 15.6vh; 
+		width: 25vh;
+	}
+	.infomv{
+		width: 63%; 
+		display: flex; 
+		flex-direction: column;
+	}
+	.itemleft{
+		width: 48%; 
+		margin-right: 2%
+	}
+	.itemright{
+		width: 48%;
+		margin-left: 2%
+	}
 }

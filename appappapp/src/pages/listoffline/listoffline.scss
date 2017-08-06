@@ -1,5 +1,5 @@
-bxh-page{
-  .songbxh{
+listoffline-page{
+    .songbxh{
 		font-size: 80%;
 		color: pink;
 		margin-top: 3%;
@@ -10,36 +10,42 @@ bxh-page{
 		color: violet;
 		margin-top: 4.5%;
 		margin-left: 6%;
-  }
+	  }
+	.indexlist{
+		margin-top: 2%; 
+		margin-right: 3%; 
+		font-size: 75%; 
+		text-align: center;
+	}
 	.buttonMore{
 		box-shadow: none;
 		margin: auto;
 		color: black;
-  }
+  	}
 	.stt{
 		width: 10%;
 		text-align: center;
 		margin-top: 5%;
-  }
-  .profile1{
+  	}
+  	.profile1{
 		img{
 			height: 9vh;
 			width: 10vh;
 			margin: auto;
 			border-radius: 5px;
 		}
-  }
-  .list-md .item-block .item-inner{
-    border-bottom: none;
-  }
-  .item-md.item-block .item-inner{
-    border-bottom: none;
+  	}
+  	.list-md .item-block .item-inner{
+    	border-bottom: none;
+  	}
+  	.item-md.item-block .item-inner{
+ 		border-bottom: none;
 	}
-	  .list-ios .item-block .item-inner{
-    border-bottom: none;
-  }
-  .item-ios.item-block .item-inner{
-    border-bottom: none;
+	.list-ios .item-block .item-inner{
+    	border-bottom: none;
+  	}
+  	.item-ios.item-block .item-inner{
+    	border-bottom: none;
 	}
 	.header{
 		text-align: center; 

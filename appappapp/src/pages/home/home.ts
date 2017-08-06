@@ -1,9 +1,8 @@
 import { Component } from '@angular/core';
-import { NavController, App, Events} from 'ionic-angular';
+import { NavController, App, Events, ViewController } from 'ionic-angular';
 
 import { Data } from '../../providers/data';
 
-import { Play } from '../play/play';
 import { PlayVideo } from '../playvideo/playvideo';
 
 import { Bxh } from '../bxh/bxh';
@@ -26,6 +25,7 @@ export class HomePage {
 		public dataFirebase: Data,
 		public app: App,
 		public event: Events,
+		public viewController: ViewController,
 	) {
 		this.navController = app.getRootNav()
 	}
@@ -36,36 +36,54 @@ export class HomePage {
 			this.element = data;
 			this.isLoading = false;
 		});
-		this.dataFirebase.video.subscribe((data)=>{
+		this.dataFirebase.video.subscribe((data) => {
 			this.elementmv = data;
-			this.isVideoLoading = false; 
+			this.isVideoLoading = false;
 		});
 	}
 
-	play1(link: string, profile: string, tenbh: string, tencs: string) {
+	audio: any;
 
-		this.navController.push(Play, {}, { animate: true, direction: 'forward'});
-		this.dataFirebase.booleantest = true;
+	play1(link: string, profile: string, tenbh: string, tencs: string, duration: string) {
 		this.dataFirebase.link = link;
 		this.dataFirebase.profile = profile;
 		this.dataFirebase.tenbh = tenbh;
 		this.dataFirebase.tencs = tencs;
+		this.dataFirebase.duration = duration;
+		this.dataFirebase.booleantest = true;
+
+		this.dataFirebase.getSong = [{ link, profile, tenbh, tencs, duration }];
+		this.event.publish('rotate:true', this.dataFirebase.link);
 	}
 
-	moreBxh(){
-		this.navCtrl.push(Bxh,{},{animate: true, direction: 'forward'})
+	showInfo(tenbh: string, tencs: string, profile: string){
+		this.dataFirebase.tenbh = tenbh;
+		this.dataFirebase.tencs = tencs;
+		this.dataFirebase.profile = profile;
+		this.event.publish('info',tenbh,tencs,profile);
 	}
 
-	moreMv(){
-		this.navCtrl.push(ListMv,{},{animate:true, direction: 'forward'})
-		
+	playList(){
+		this.dataFirebase.getSong = this.element;
+		this.event.publish('list:true', this.dataFirebase.getSong)
 	}
 
-	playvideo(linkmv: string, profilemv: string, tenmv: string, tencsmv: string){
-		this.navController.push(PlayVideo, {}, {animate: true, direction: ' forward'});
+	moreBxh() {
+		this.navCtrl.push(Bxh, {}, { animate: true, direction: 'forward' })
+	}
+
+	moreMv() {
+		this.navCtrl.push(ListMv, {}, { animate: true, direction: 'forward' })
+
+	}
+
+	playvideo(linkmv: string, profilemv: string, tenmv: string, tencsmv: string) {
 		this.dataFirebase.linkmv = linkmv;
 		this.dataFirebase.tenmv = tenmv;
 		this.dataFirebase.profilemv = profilemv;
-		this.dataFirebase.tencsmv = tencsmv;	
+		this.dataFirebase.tencsmv = tencsmv;
+		this.dataFirebase.isPlaying = true;
+		this.event.publish('videoplaying:true', this.dataFirebase.isPlaying);
+		this.navController.push(PlayVideo, {}, { animate: true, direction: ' forward' });
 	}
 }

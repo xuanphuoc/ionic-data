@@ -2,52 +2,58 @@ page-home {
 	.list-md .item-block .item-inner{
 		border-bottom: none
 	}
-
 	.item-md.item-block .item-inner{
 		border-bottom: none
 	}
 	.list-header-md{
 		border-top: none;
 	}
-
-	.stt1{
-		display: flex;
-		p{
-			margin: auto;
-			text-align: center;
-			color: orange;
-			font-size: 20px;
-		}
+	.list-ios .item-block .item-inner{
+		border-bottom: none;
+		border-top: none;
 	}
-	.stt2{
-		display: flex;
-		p{
-			margin: auto;
-			text-align: center;
-			color: pink;
-			font-size: 20px;
-		}
+	.list-ios > .item-block:first-child{
+		border-top: none;
 	}
-	.stt3{
-		display: flex;
-		p{
-			margin: auto;
-			text-align: center;
-			color: violet;
-			font-size: 20px;
-		}
-	}
-	.stt{
-		display: flex;
-		p{
-			margin: auto;
-			text-align: center;
-			color: #91908e;
-			font-size: 20px;
-		}
+	.list-ios > .item-block:last-child{
+		border-bottom: none;
 	}
 
-	.profile{
+	.item-ios.item-block .item-inner{
+		border-bottom: none
+	}
+	.list-header-ios{
+		border-top: none;
+		border-bottom: none;
+	}
+
+	.top1{
+		margin: auto;
+		text-align: center;
+		color: orange;
+		font-size: 1.0em;
+	}
+	.top2{
+		margin: auto;
+		text-align: center;
+		color: pink;
+		font-size: 1.0em;
+	}
+	.top3{
+		margin: auto;
+		text-align: center;
+		color: violet;
+		font-size: 1.0em;
+	}
+	.top{
+		margin: auto;
+		text-align: center;
+		font-size: 1.0em;
+		color: #91908e;
+
+	}
+
+	.profileitem{
 		img{
 			height: 10vh;
 			width: 10vh;
@@ -56,50 +62,27 @@ page-home {
 		}
 	}
 
-	.nameTitle{
-		display: flex;
-		height: 60%;
-		p{
-			margin-left: 15px;
-			text-align: center;
-			margin-top: 15px;
-			color: pink;
-		}
-
-	}
-	.actorTitle{
-		display: flex;
-		height: 40%;
-		p{
-			margin-left: 15px;
-			text-align: center;
-			font-size: 85%;
-			color: violet;
-		}
-	}
-
-
 	.song{
-		font-size: 110%;
+		font-size: 100%;
 		color: pink;
 		margin-top: 3%;
 		margin-left: 6%;
 	}
 	.actor{
-		font-size: 85%;
+		font-size: 75%;
 		color: violet;
 		margin-top: 4.5%;
 		margin-left: 6%;
 	}
 
 	.mv{
-		font-size: 80%;
+		font-size: 65%;
 		color: pink;
 		margin-top: 3%;
 		margin-left: 6%;
 	}
 	.actormv{
-		font-size: 70%;
+		font-size: 50%;
 		color: violet;
 		margin-top: 4.5%;
 		margin-left: 6%;
@@ -108,12 +91,32 @@ page-home {
 	.buttonMore{
 		box-shadow: none;
 		margin: auto;
-		color: black;
+		color: wheat;
+		font-size: 1.2em;
+	}
+
+	.buttonInfo{
+		box-shadow: none;
+		margin: auto;
+		color: wheat;
 	}
 	.title1{
 		color: black;
 		font-size: 20px;
-		width: 70%
+		width: 70%;
+	}
+	.title2{
+		color: black;
+		font-size: 20px;
+		width: 30%;
+	}
+	.playList{
+		width: 40%;
+		color: white;
+		button{
+			box-shadow: none;
+			margin-top: 7%;
+		}
 	}
 	.more{
 		margin: auto;
@@ -121,6 +124,24 @@ page-home {
 		color: pink;
 		font-size: 15px;
 		width: 30%;
+	}
+	.itemleft{
+		width: 46%; 
+		margin-right: 4%
+	}
+	.itemright{
+		width: 46%;
+		margin-left: 4%
+	}
+	.profilemv{
+		border-radius: 5px; 
+		height: 15.6vh; 
+		width: 25vh;
+	}
+	.infomv{
+		width: 63%; 
+		display: flex; 
+		flex-direction: column;
 	}
 	.swiper-pagination-fraction, .swiper-pagination-custom, .swiper-container-horizontal > .swiper-pagination-bullets{
 		width: 100%;

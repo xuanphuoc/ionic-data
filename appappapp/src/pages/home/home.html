@@ -20,13 +20,14 @@
   </div>
   <ion-list style="height: 120vh">
     <div class="row">
-      <div class="title1">
+      <div class="title2">
         <ion-list-header>
           <p>
             <font face="verdana" size="5" color="balck">BXH</font>
           </p>
         </ion-list-header>
       </div>
+      <div class="playList"><button ion-button color="third" (click)="playList()"><ion-icon color="primary" name="play"></ion-icon></button></div>
       <div class="more" (click)="moreBxh()">
         <p>xem thêm</p>
       </div>
@@ -34,87 +35,77 @@
     <div>
       <ion-list *ngIf="!isLoading">
         <ion-item>
-          <div class="row" style="height: 100%" (click)="play1(element[0].link,element[0].profile,element[0].tenbh,element[0].tencs)">
-            <div class="stt1" style="width: 10%">
-              <p>1</p>
-            </div>
-            <div class="profile" style="width: 20%">
-              <img src="{{element[0].profile}}">
-            </div>
-            <div style="width: 60%; display: flex; flex-direction: column;">
-              <div class="song">{{element[0].tenbh}}</div>
-              <div class="actor">{{element[0].tencs}}</div>
-            </div>
-            <div style="width: 10%; margin: auto">
-              <button class="buttonMore" ion-button icon-only color="third"><ion-icon name="more"></ion-icon></button>
-            </div>
+          <div class="row" style="height: 100%">
+              <div class="top1" style="width: 10%">1</div>  
+              <div class="profileitem" style="width: 20%">
+               <img src="{{element[0].profile}}"> 
+            </div>  
+            <div style="width: 60%;" (click)="play1(element[0].link,element[0].profile,element[0].tenbh,element[0].tencs,element[0].duration)">
+               <div class="song">{{element[0].tenbh}}</div>
+              <div class="actor">{{element[0].tencs}}</div> 
+            </div> 
+             <div style="width: 10%; margin: auto" (click)="showInfo(element[0].tenbh,element[0].tencs,element[0].profile)"> 
+               <button class="buttonInfo" ion-button style="font-size: 1.0em" color="third"><ion-icon name="more"></ion-icon></button> 
+            </div> 
           </div>
         </ion-item>
         <ion-item>
-          <div class="row" style="height: 100%" (click)="play1(element[1].link,element[1].profile,element[1].tenbh,element[1].tencs)">
-            <div class="stt2" style="width: 10%">
-              <p>2</p>
-            </div>
-            <div class="profile" style="width: 20%">
+          <div class="row" style="height: 100%">
+            <div class="top2" style="width: 10%">2</div>
+            <div class="profileitem" style="width: 20%">
               <img src="{{element[1].profile}}">
             </div>
-            <div style="width: 60%; display: flex; flex-direction: column;">
+            <div style="width: 60%" (click)="play1(element[1].link,element[1].profile,element[1].tenbh,element[1].tencs,element[1].duration)">
               <div class="song">{{element[1].tenbh}}</div>
               <div class="actor">{{element[1].tencs}}</div>
             </div>
-            <div style="width: 10%; margin: auto">
-              <button class="buttonMore" ion-button icon-only color="third"><ion-icon name="more"></ion-icon></button>
+            <div style="width: 10%; margin: auto" (click)="showInfo(element[1].tenbh,element[1].tencs,element[1].profile)">
+              <button class="buttonMore" ion-button style="font-size: 1.0em" color="third"><ion-icon name="more"></ion-icon></button>
             </div>
           </div>
         </ion-item>
         <ion-item>
-          <div class="row" style="height: 100%" (click)="play1(element[2].link,element[2].profile,element[2].tenbh,element[2].tencs)">
-            <div class="stt3" style="width: 10%">
-              <p>3</p>
-            </div>
-            <div class="profile" style="width: 20%">
+          <div class="row" style="height: 100%">
+            <div class="top3" style="width: 10%">3</div>
+            <div class="profileitem" style="width: 20%">
               <img src="{{element[2].profile}}">
             </div>
-            <div style="width: 60%; display: flex; flex-direction: column;">
+            <div style="width: 60%" (click)="play1(element[2].link,element[2].profile,element[2].tenbh,element[2].tencs,element[2].duration)">
               <div class="song">{{element[2].tenbh}}</div>
               <div class="actor">{{element[2].tencs}}</div>
             </div>
-            <div style="width: 10%; margin: auto">
-              <button class="buttonMore" ion-button icon-only color="third"><ion-icon name="more"></ion-icon></button>
+            <div style="width: 10%; margin: auto" (click)="showInfo(element[2].tenbh,element[2].tencs,element[2].profile)">
+              <button class="buttonMore" ion-button style="font-size: 1.0em" color="third"><ion-icon name="more"></ion-icon></button>
             </div>
           </div>
         </ion-item>
         <ion-item>
-          <div class="row" style="height: 100%" (click)="play1(element[3].link,element[3].profile,element[3].tenbh,element[3].tencs)">
-            <div class="stt" style="width: 10%">
-              <p>4</p>
-            </div>
-            <div class="profile" style="width: 20%">
+          <div class="row" style="height: 100%">
+            <div class="top" style="width: 10%">4</div>
+            <div class="profileitem" style="width: 20%">
               <img src="{{element[3].profile}}">
             </div>
-            <div style="width: 60%; display: flex; flex-direction: column;">
+            <div style="width: 60%" (click)="play1(element[3].link,element[3].profile,element[3].tenbh,element[3].tencs,element[3].duration)">
               <div class="song">{{element[3].tenbh}}</div>
               <div class="actor">{{element[3].tencs}}</div>
             </div>
-            <div style="width: 10%; margin: auto">
-              <button class="buttonMore" ion-button icon-only color="third"><ion-icon name="more"></ion-icon></button>
+            <div style="width: 10%; margin: auto" (click)="showInfo(element[3].tenbh,element[3].tencs,element[3].profile)">
+              <button class="buttonMore" ion-button style="font-size: 1.0em" color="third"><ion-icon name="more"></ion-icon></button>
             </div>
           </div>
         </ion-item>
         <ion-item>
-          <div class="row" style="height: 100%" (click)="play1(element[4].link,element[4].profile,element[4].tenbh,element[4].tencs)">
-            <div class="stt" style="width: 10%">
-              <p>5</p>
-            </div>
-            <div class="profile" style="width: 20%">
+          <div class="row" style="height: 100%">
+            <div class="top" style="width: 10%">5</div>
+            <div class="profileitem" style="width: 20%">
               <img src="{{element[4].profile}}">
             </div>
-            <div style="width: 60%; display: flex; flex-direction: column;">
+            <div style="width: 60%" (click)="play1(element[4].link,element[4].profile,element[4].tenbh,element[4].tencs,element[4].duration)">
               <div class="song">{{element[4].tenbh}}</div>
               <div class="actor">{{element[4].tencs}}</div>
             </div>
-            <div style="width: 10%; margin: auto">
-              <button class="buttonMore" ion-button icon-only color="third"><ion-icon name="more"></ion-icon></button>
+            <div style="width: 10%; margin: auto" (click)="showInfo(element[4].tenbh,element[4].tencs,element[4].profile)">
+              <button class="buttonMore" ion-button style="font-size: 1.0em" color="third"><ion-icon name="more"></ion-icon></button>
             </div>
           </div>
         </ion-item>
@@ -137,31 +128,31 @@
       <ion-list *ngIf="!isVideoLoading">
         <ion-item>
           <div class="row" style="height: 23vh">
-            <div style="width: 48%; margin-right: 2%" (click)="playvideo(elementmv[0].linkmv,elementmv[0].profilemv,elementmv[0].tenmv,elementmv[0].tencsmv)">
+            <div class="itemleft" (click)="playvideo(elementmv[0].linkmv,elementmv[0].profilemv,elementmv[0].tenmv,elementmv[0].tencsmv)">
               <div>
-                <img style="border-radius: 5px; height: 15.6vh; width: 25vh" src="{{elementmv[0].profilemv}}">
+                <img class="profilemv" src="{{elementmv[0].profilemv}}">
               </div>
               <div>
-                <div style="width: 63%; display: flex; flex-direction: column;">
-                  <div class="mv" style="height: 60%; margin-left: 0px">
+                <div class="infomv">
+                  <div class="mv">
                     {{elementmv[0].tenmv}}
                   </div>
-                  <div class="actormv" style="height: 40%;margin-left: 0px">
+                  <div class="actormv">
                     {{elementmv[0].tencsmv}}
                   </div>
                 </div>
               </div>
             </div>
-            <div style="width: 48%;margin-left: 2%" (click)="playvideo(elementmv[1].linkmv,elementmv[1].profilemv,elementmv[1].tenmv,elementmv[1].tencsmv)">
+            <div class="itemright" (click)="playvideo(elementmv[1].linkmv,elementmv[1].profilemv,elementmv[1].tenmv,elementmv[1].tencsmv)">
               <div>
-                <img style="border-radius: 5px; height: 15.6vh; width: 25vh" src="{{elementmv[1].profilemv}}">
+                <img class="profilemv" src="{{elementmv[1].profilemv}}">
               </div>
               <div>
-                <div style="width: 63%; display: flex; flex-direction: column;">
-                  <div class="mv" style="height: 60%; margin-left: 0px">
+                <div class="infomv">
+                  <div class="mv">
                     {{elementmv[1].tenmv}}
                   </div>
-                  <div class="actormv" style="height: 40%;margin-left: 0px">
+                  <div class="actormv">
                     {{elementmv[1].tencsmv}}
                   </div>
                 </div>
@@ -171,12 +162,12 @@
         </ion-item>
         <ion-item>
           <div class="row" style="height: 23vh">
-            <div style="width: 48%; margin-right: 2%;" (click)="playvideo(elementmv[2].linkmv,elementmv[2].profilemv,elementmv[2].tenmv,elementmv[2].tencsmv)">
+            <div class="itemleft" (click)="playvideo(elementmv[2].linkmv,elementmv[2].profilemv,elementmv[2].tenmv,elementmv[2].tencsmv)">
               <div>
-                <img style="border-radius: 5px; height: 15.6vh;width: 25vh" src="{{elementmv[2].profilemv}}">
+                <img class="profilemv" src="{{elementmv[2].profilemv}}">
               </div>
               <div>
-                <div style="width: 63%; display: flex; flex-direction: column;">
+                <div class="infomv">
                   <div class="mv" style="height: 60%; margin-left: 0px">
                     {{elementmv[2].tenmv}}
                   </div>
@@ -186,12 +177,12 @@
                 </div>
               </div>
             </div>
-            <div style="width: 48%; margin-left: 2%" (click)="playvideo(elementmv[3].linkmv,elementmv[3].profilemv,elementmv[3].tenmv,elementmv[3].tencsmv)">
+            <div class="itemright" (click)="playvideo(elementmv[3].linkmv,elementmv[3].profilemv,elementmv[3].tenmv,elementmv[3].tencsmv)">
               <div>
-                <img style="border-radius: 5px; height: 15.6vh; width: 25vh" src="{{elementmv[3].profilemv}}">
+                <img class="profilemv" src="{{elementmv[3].profilemv}}">
               </div>
               <div>
-                <div style="width: 63%; display: flex; flex-direction: column;">
+                <div class="infomv">
                   <div class="mv" style="height: 60%; margin-left: 0px">
                     {{elementmv[3].tenmv}}
                   </div>

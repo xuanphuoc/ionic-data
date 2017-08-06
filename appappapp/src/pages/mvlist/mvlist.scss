@@ -1,14 +1,60 @@
 mvlist-page{
+	.list-md .item-block .item-inner{
+		border-bottom: none
+	}
+
+	.item-md.item-block .item-inner{
+		border-bottom: none
+	}
+	.list-header-md{
+		border-top: none;
+	}
+	.list-ios .item-block .item-inner{
+		border-bottom: none
+	}
+
+	.item-ios.item-block .item-inner{
+		border-bottom: none
+	}
+	.list-header-ios{
+		border-top: none;
+	}
     .mv{
-		font-size: 160%;
+		font-size: 70%;
 		color: pink;
 		margin-top: 3%;
-		margin-left: 6%;
+		height: 60%; 
 	}
 	.actormv{
-		font-size: 140%;
+		font-size: 55%;
 		color: violet;
 		margin-top: 4.5%;
-		margin-left: 6%;
+		height: 40%;
+	}
+	.header{
+		text-align: center; 
+		font-size: 1.8em; 
+		margin: auto; 
+		margin-top: 1.5vh; 
+		margin-right: 25vh; 
+		color: black
+	}
+	.profilemv{
+		border-radius: 5px; 
+		height: 15.6vh; 
+		width: 25vh;
+	}
+	.infomv{
+		width: 63%; 
+		display: flex; 
+		flex-direction: column;
+	}
+	.itemleft{
+		width: 48%; 
+		margin-right: 2%
+	}
+	.itemright{
+		width: 48%;
+		margin-left: 2%
 	}
 }

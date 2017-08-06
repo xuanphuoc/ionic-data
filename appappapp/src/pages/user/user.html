@@ -1,34 +1,33 @@
-<ion-header>
-  <ion-navbar color="light">
-    <ion-title><p style="text-align: center">USER</p></ion-title>
-  </ion-navbar>
-</ion-header>
-
 <ion-content>
   <ion-list style="height: 100vh">
     <button ion-item menuClose style="color: white" color="primary" (click)="goUserInfo()">
       <div class="row">
         <div style="width: 20%"><ion-icon style="font-size: 3em" name="contact"></ion-icon></div>
-        <div ><p style="text-align: left;font-size: 1.8em">User name</p></div>
+        <div ><p style="text-align: left;font-size: 1.5em; margin-top: 12%">User name</p></div>
       </div>
     </button>
     <ion-list>
-      <div class="title1"><ion-list-header ><p><font face="verdana" size="5" color="balck">Nhạc online</font></p></ion-list-header></div>
-      <ion-item >
-        <button ion-item menuClose><ion-icon name="heart"></ion-icon> Nhạc yêu thích</button>
-      </ion-item>
-      <ion-item >
-        <button ion-item menuClose><ion-icon name="list-box"></ion-icon> Playlist</button>
-      </ion-item>
-      <ion-item >
-        <button ion-item menuClose><ion-icon name="arrow-round-up"></ion-icon> Upload</button>    
-      </ion-item>
-      <div class="title1"><ion-list-header ><p><font face="verdana" size="5" color="balck">Nhạc offline</font></p></ion-list-header></div>
+      <div class="title1">
+        <ion-list-header>
+          <p>
+            <font face="verdana" size="5" color="balck">Nhạc online</font>
+          </p>
+        </ion-list-header>
+      </div>
       <ion-item>
-        <button ion-item menuClose><ion-icon name="musical-notes"></ion-icon> Thư viên nhạc</button>
+        <button ion-item menuClose><ion-icon name="heart">
+          </ion-icon><label style="margin-left: 8%">Nhạc yêu thích</label></button>
       </ion-item>
+      <div class="title1">
+        <ion-list-header>
+          <p>
+            <font face="verdana" size="5" color="balck">Nhạc offline</font>
+          </p>
+        </ion-list-header>
+      </div>
       <ion-item>
-        <button ion-item menuClose><ion-icon name="download"></ion-icon> Lịch sử tải về</button>
+        <button ion-item menuClose (click)="goListoffline()"><ion-icon name="musical-notes">
+          </ion-icon><label style="margin-left: 8%">Thư viên nhạc</label></button>
       </ion-item>
     </ion-list>
   </ion-list>

@@ -1,3 +1,47 @@
 page-about {
-
+    .toolbar-md{
+        padding: 0;
+    }
+    .toolbar-ios{
+        padding: 0;
+    }
+    .list-md .item-block .item-inner{
+		border-bottom: none;
+	}
+	.item-md.item-block .item-inner{
+		border-bottom: none;
+	}
+	.list-header-md{
+		border-top: none;
+	}
+	.list-ios .item-block .item-inner{
+		border-bottom: none;
+	}
+	.item-ios.item-block .item-inner{
+		border-bottom: none;
+	}
+	.list-header-ios{
+		border-bottom: none;
+	}
+	.profile1{
+		img{
+			height: 9vh;
+			width: 10vh;
+			margin: auto;
+			border-radius: 5px;
+		}
+	}
+	.song{
+		font-size: 110%;
+		color: pink;
+		margin-top: 3%;
+		margin-left: 6%;
+	}
+	.actor{
+		font-size: 85%;
+		color: violet;
+		margin-top: 4.5%;
+		margin-left: 6%;
+  	}
+	
 }

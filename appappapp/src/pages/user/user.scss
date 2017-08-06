@@ -8,4 +8,19 @@ user-page{
 	.item-md.item-block .item-inner{
 		border-bottom: none;
 	}
+	.list-header-ios{
+		border-bottom: none;
+	}
+	.list-ios .item-block .item-inner{
+		border-bottom: none;
+	}
+	.item-ios.item-block .item-inner{
+		border-bottom: none
+	}
+	.list-ios > .item-block:first-child{
+		border-top: none;
+	}
+	.list-ios > .item-block:last-child{
+		border-bottom: none;
+	}
 }

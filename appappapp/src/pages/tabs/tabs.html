@@ -1,26 +1,232 @@
-<ion-toolbar color="light" id="tool" style="position: absolute;bottom: 50px;height: 10%;">
-	<div class="row" style="height: 100%">
-		<div style="width: 18%" (click)="goPlay()">
-			<div style="height: 8.5vh;width: 8.5vh; margin: auto">
-				<img id="rotate" style="border-radius: 50%; height: 100%;width: 100%" src="{{dataFirebase.profile}}">
+<div id="player" class="player">
+	<div class="lighten">
+		<div style="height: 10%" class="row">
+			<div style="width: 15%;height: 100%">
+				<button ion-button style="box-shadow: none" (click)="backHome()"><ion-icon name="arrow-down"></ion-icon></button>
+			</div>
+			<div style="width: 70%">
+				<div id="tenbh" style="font-size: 135%; margin-top: 4%;text-align: center;"></div>
+				<div id="tencs" style="font-size: 80%; margin-top: 2%; text-align: center;"></div>
+			</div>
+			<div style="width: 15%;height: 100%">
+
 			</div>
 		</div>
-		<div style="width: 52%; display: flex; flex-direction: column;" (click)="goPlay()">
-			<div class="text">{{dataFirebase.tenbh}}</div>
-			<div class="text1">{{dataFirebase.tencs}}</div>
+		<div style="height: 60%;">
+			<div class="profile">
+				<img id="rotate1" style="border-radius: 50%;width: 100%;height: 100%;" [src]="source">
+
+			</div>
+
+			<div>
+				<div style="text-align: center;">
+					<p>lời bài hát </p>
+				</div>
+				<div class="row">
+					<div style="width: 20%">
+						<button ion-button style="box-shadow: none;width: 100%" (click)="favoriteSong()">
+								<ion-icon id="like" name="heart"></ion-icon>
+							</button>
+					</div>
+					<!--show list  -->
+					<div style="width: 20%">
+						<button ion-button style="box-shadow: none;width: 100%" (click)="showList()">
+								<ion-icon name="list"></ion-icon>
+							</button>
+					</div>
+					<div style="width: 20%">
+						<button ion-button style="box-shadow: none;width: 100%" (click)="downloadFile()">
+								<ion-icon name="download"></ion-icon>
+							</button>
+					</div>
+					<div style="width: 20%">
+						<button ion-button style="box-shadow: none;width: 100%" (click)="showShare1()">
+								<ion-icon name="share"></ion-icon>
+							</button>
+					</div>
+					<div style="width: 20%">
+						<button ion-button style="box-shadow: none;width: 100%" (click)="showInfo()">
+								<ion-icon name="more"></ion-icon>
+							</button>
+					</div>
+				</div>
+			</div>
+
 		</div>
-		<div style="width: 30%; display: flex">
-			<div style="width: 100%; margin: auto; display: flex; flex-direction: row-reverse;">
-				<button ion-button color="light" style="box-shadow: none;"><ion-icon name="skip-forward"></ion-icon></button>
-				<button ion-button color="light" style="box-shadow: none;" (click)="changeButton()"><ion-icon [name]="nameIcon"></ion-icon></button>
-				<button ion-button color="light" style="box-shadow: none;"><ion-icon name="skip-backward"></ion-icon></button>
+		<div style="height: 25%">
+
+			<div class="row" style="height: 20%">
+				<div style="width: 100%">
+					<ion-range min="0" max="{{maxValue}}" [(ngModel)]="value">
+						<ion-label range-left style="width: 12%">{{currentMinute}}:{{currentSecond}}</ion-label>
+						<ion-label range-right>{{minute}}:{{second}}</ion-label>
+					</ion-range>
+					<!-- <ion-range min="0" max="{{maxValue}}" [(ngModel)]="currentTime">
+						<ion-label range-left>{{currentMinute}}:{{currentSecond}}</ion-label>
+						<ion-label range-right>{{minute}}:{{second}}</ion-label>
+					</ion-range> -->
+				</div>
+			</div>
+			<div class="row" style="height: 80%">
+				<div style="width: 20%;height: 100%">
+					<button ion-button class="button1" (click)="shuffleMode()"><ion-icon id="shuffle" name="shuffle"></ion-icon></button>
+				</div>
+				<div style="width: 60%;height: 100%;">
+					<div class="row">
+						<div style="width: 33%">
+							<button ion-button class="button1" (click)="previousSong()"><ion-icon class="icon1" name="skip-backward"></ion-icon></button>
+						</div>
+						<div style="width: 34%">
+							<button ion-button icon-only class="button1" (click)="changeButton()"><ion-icon [name]="nameIcon" ></ion-icon></button>
+						</div>
+						<div style="width: 33%">
+							<button ion-button class="button1" (click)="nextSong()"><ion-icon class="icon1" name="skip-forward"></ion-icon></button>
+						</div>
+					</div>
+				</div>
+				<div style="width: 20%;height: 100%; margin:auto;">
+					<button ion-button class="button1" (click)="repeatMode()"><ion-icon id="repeat" name="repeat"></ion-icon></button>
+				</div>
 			</div>
 		</div>
 	</div>
-</ion-toolbar>
-<ion-tabs tabsPlacement="bottom">
-	<ion-tab [root]="tab1Root" tabTitle="Trang chủ" tabIcon="home"></ion-tab>
-	<ion-tab [root]="tab2Root" tabTitle="Tìm kiếm" tabIcon="search"></ion-tab>
-	<ion-tab [root]="tab3Root" tabTitle="Cá nhân" tabIcon="contact"></ion-tab>
-	<ion-tab [root]="tab4Root" tabTitle="Cài đặt" tabIcon="cog"></ion-tab>
-</ion-tabs>
+</div>
+
+<div id="home">
+	<ion-tabs tabsPlacement="bottom">
+		<ion-tab [root]="tab1Root" tabTitle="Trang chủ" tabIcon="home"></ion-tab>
+		<ion-tab [root]="tab2Root" tabTitle="Tìm kiếm" tabIcon="search"></ion-tab>
+		<ion-tab [root]="tab3Root" tabTitle="Cá nhân" tabIcon="contact"></ion-tab>
+	</ion-tabs>
+
+</div>
+<div id="list" class="list-song">
+	<div class="lighten">
+		<button class="buttonx" ion-button (click)="hideList()">
+			<ion-icon name="exit"></ion-icon>
+		</button>
+		<ion-list>
+			<ion-item style="background-color: transparent" *ngFor="let item of listSong; let i = index">
+				<div class="row">
+					<div class="indexlist">{{i+1}}</div>
+					<div (click)="playFromList(item.link,item.profile,item.tenbh,item.tencs,item.duration,i)">
+						<div class="song">{{item.tenbh}}</div>
+						<div class="actor">{{item.tencs}}</div>
+					</div>
+				</div>
+			</ion-item>
+		</ion-list>
+	</div>
+</div>
+<div id="about" class="about">
+	<div class="row" style="height: 25%">
+		<div class="profileinfo" style="width: 25%">
+			<img [src]="source">
+		</div>
+		<div style="width: 75%">
+			<div id="songinfo1" class="songinfo"></div>
+			<div id="actorinfo1" class="actorinfo"></div>
+		</div>
+	</div>
+	<div style="margin-left: 5%;margin-top: 10%; height: 15%" class="row">
+		<ion-icon name="information-circle"></ion-icon>
+		<div style="margin-left: 5%">Infomation</div>
+	</div>
+	<div style="margin-left: 5%;height: 15%" class="row">
+		<ion-icon name="videocam"></ion-icon>
+		<div style="margin-left: 5%">Xem Mv</div>
+	</div>
+	<button ion-button class="buttonClose" (click)="closeInfo()">Đóng</button>
+</div>
+<div id="sharein" class="about">
+	<div class="row" style="height: 25%">
+		<div class="profileinfo" style="width: 25%">
+			<img [src]="source">
+		</div>
+		<div style="width: 75%">
+			<div id="songinfo3" class="songinfo"></div>
+			<div id="actorinfo3" class="actorinfo"></div>
+		</div>
+	</div>
+	<div style="margin-left: 5%;margin-top: 10%; height: 15%" class="row">
+		<ion-icon name="logo-facebook"></ion-icon>
+		<div style="margin-left: 5%">Facebook</div>
+	</div>
+	<div style="margin-left: 5%;height: 15%" class="row">
+		<ion-icon name="logo-instagram"></ion-icon>
+		<div style="margin-left: 5%">Instagram</div>
+	</div>
+	<button ion-button class="buttonClose" (click)="closeShare1()">Đóng</button>
+</div>
+<div id="shareout" class="about">
+	<div class="row" style="height: 25%">
+		<div class="profileinfo" style="width: 25%">
+			<img [src]="profile">
+		</div>
+		<div style="width: 75%">
+			<div id="songinfo2" class="songinfo"></div>
+			<div id="actorinfo2" class="actorinfo"></div>
+		</div>
+	</div>
+	<div style="margin-left: 5%;margin-top: 10%; height: 15%" class="row">
+		<ion-icon name="logo-facebook"></ion-icon>
+		<div style="margin-left: 5%">Facebook</div>
+	</div>
+	<div style="margin-left: 5%;height: 15%" class="row">
+		<ion-icon name="logo-instagram"></ion-icon>
+		<div style="margin-left: 5%">Instagram</div>
+	</div>
+	<button ion-button class="buttonClose" (click)="closeShare()">Đóng</button>
+</div>
+
+<div id="songabout" class="songInfo">
+	<div class="row" style="height: 25%">
+		<div class="profileinfo" style="width: 25%">
+			<img [src]="profile">
+		</div>
+		<div style="width: 75%">
+			<div id="songinfo" class="songinfo"></div>
+			<div id="actorinfo" class="actorinfo"></div>
+		</div>
+	</div>
+	<div style="margin-left: 5%;margin-top: 10%; height: 15%" class="row">
+		<ion-icon name="heart"></ion-icon>
+		<div style="margin-left: 5%">Like</div>
+	</div>
+	<div style="margin-left: 5%;height: 15%" class="row">
+		<ion-icon name="download"></ion-icon>
+		<div style="margin-left: 5%">Download</div>
+	</div>
+	<div style="margin-left: 5%;height: 15%" class="row">
+		<ion-icon name="videocam"></ion-icon>
+		<div style="margin-left: 5%">Xem Mv</div>
+	</div>
+	<div style="margin-left: 5%;height: 15%" class="row" (click)="showShare()">
+		<ion-icon name="share"></ion-icon>
+		<div style="margin-left: 5%">Share</div>
+	</div>
+	<button ion-button class="buttonClose" (click)="closeCheckInfo()">Đóng</button>
+</div>
+
+<div id="tool" class="toolBar">
+	<div class="lighten">
+		<div class="row">
+			<div style="width: 18%" (click)="goPlayer()">
+				<div style="height: 8.5vh;width: 8.5vh; margin: auto; margin-top: 7%">
+					<img id="rotate" style="border-radius: 50%; height: 100%;width: 100%" [src]="source">
+				</div>
+			</div>
+			<div style="width: 52%; display: flex; flex-direction: column;" (click)="goPlayer()">
+				<div id="tenbh1" class="text"></div>
+				<div id="tencs1" class="text1"></div>
+			</div>
+			<div style="width: 30%; display: flex">
+				<div style="width: 100%; margin: auto; display: flex; flex-direction: row-reverse;">
+					<button ion-button style="box-shadow: none;" (click)="previousSongHome()"><ion-icon name="skip-forward"></ion-icon></button>
+					<button ion-button style="box-shadow: none;" (click)="changeButton()"><ion-icon [name]="nameIcon"></ion-icon></button>
+					<button ion-button style="box-shadow: none;" (click)="nextSongHome()"><ion-icon name="skip-backward"></ion-icon></button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

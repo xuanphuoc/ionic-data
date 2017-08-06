@@ -1,9 +1,7 @@
 import { Component } from '@angular/core';
-import { NavController, App } from 'ionic-angular';
+import { NavController, App, Events } from 'ionic-angular';
 
 import { Data } from '../../providers/data';
-
-import { Play } from '../play/play';
 
 @Component({
     selector: 'bxh-page',
@@ -17,7 +15,8 @@ export class Bxh {
         public navCtrl: NavController,
         public dataFirebase: Data,
         public app: App,
-    ) { 
+        public event: Events,
+    ) {
         this.navController = app.getRootNav();
     }
 
@@ -25,18 +24,26 @@ export class Bxh {
         this.dataFirebase.getData();
         this.dataFirebase.music.subscribe((data) => {
             this.bxh = data;
-            this.isLoading = false;            
+            this.isLoading = false;
         })
     }
     goBack() {
         this.navCtrl.pop({ animate: true, direction: 'back' })
     }
-    play(link: string, profile: string, tenbh: string, tencs: string){
-        this.navController.push(Play, {}, { animate: true, direction: 'forward'});
-		this.dataFirebase.booleantest = true;
-		this.dataFirebase.link = link;
-		this.dataFirebase.profile = profile;
-		this.dataFirebase.tenbh = tenbh;
+    play(link: string, profile: string, tenbh: string, tencs: string, duration: string) {
+        this.dataFirebase.booleantest = true;
+        this.dataFirebase.duration = duration;
+        this.dataFirebase.link = link;
+        this.dataFirebase.profile = profile;
+        this.dataFirebase.tenbh = tenbh;
         this.dataFirebase.tencs = tencs;
+        this.event.publish('rotate:true', this.dataFirebase.link);
+    }
+
+    showInfo(tenbh: string, tencs: string, profile: string) {
+        this.dataFirebase.tenbh = tenbh;
+        this.dataFirebase.tencs = tencs;
+        this.dataFirebase.profile = profile;
+        this.event.publish('info', tenbh, tencs, profile);
     }
 }
